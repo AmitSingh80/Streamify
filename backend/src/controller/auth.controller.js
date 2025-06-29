@@ -4,9 +4,9 @@ import {upsertStreamUser} from "../lib/stream.js"
 
 
 export async function signup(req, res) {
-  const { email, password, fullName } = req.body;
+  const { fullName,email, password, } = req.body;
   try {
-    if (!email || !password || !fullName) {
+    if (!fullName || !email || !password ) {
       return res.status(400).json({
         message: "All fields are required",
       });
@@ -31,8 +31,8 @@ export async function signup(req, res) {
       const randomAvatar = `https://avatar.iran.liara.run/public/${idx}.png`;
 
     const newUser = await User.create({
-      email,
       fullName,
+      email,
       password,
       profilePics: randomAvatar,
     });

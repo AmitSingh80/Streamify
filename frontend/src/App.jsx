@@ -7,7 +7,7 @@ import CallPage from './pages/CallPage.jsx'
 import NotificationsPage from './pages/NotificationsPage.jsx'
 import OnboardingPage from './pages/OnboardingPage.jsx'
 import ChatPage from './pages/ChatPage.jsx'
-import axios from "axios"
+// import axios from "axios"
 
 import  { Toaster } from 'react-hot-toast'
 // import { useEffect,useState } from 'react'
@@ -22,17 +22,20 @@ const App = () => {
   //axios
   //react query tanstack query
 
-      const {data:authData, isLoading,error} =useQuery ({
+      const {
+        data:authData,
+         isLoading,
+         error,
+        } =useQuery ({
         queryKey: ["authUser"],
 
         queryFn:async ()=>{
 
-          const res =await axiosInstance.get("/auth/me");
-
-          // const data= await res.json();
+          const res = await axiosInstance.get("/auth/me");
           return res.data;
         },
-
+        retry:false , //for auth check
+          
 });
 
  const authUser= authData?.user
