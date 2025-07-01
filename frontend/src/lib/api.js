@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import { axiosInstance } from "./axios";
 
 export const signup = async (signupData) => {
@@ -8,6 +8,12 @@ export const signup = async (signupData) => {
     
 };
 
+export const login = async (loginData) => {
+          const response = await axiosInstance.post("/auth/login",loginData);
+          return response.data;
+          
+    
+};
 
 export const getAuthUser = async ()=>{
     const res = await axiosInstance.get("/auth/me");
@@ -18,3 +24,4 @@ export const completeOnboarding = async (userData) =>{
     const response = await axiosInstance.post("/auth/onboarding", userData);
     return response.data;
 }
+
