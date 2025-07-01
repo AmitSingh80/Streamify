@@ -10,15 +10,16 @@ import { signup } from '../lib/api'
 
 
 const SignUpPage = () => {
-  const [signupData,setSignupData]=useState({
-    FullName:"",
+  const [signupData,setSignupData]= useState({
+    fullName:"",
     email:"",
     password:"",
   });
 
-  const queryClient = useQueryClient()
-
-  const {mutate:signupMutation, 
+  const queryClient = useQueryClient();
+    
+  const {
+    mutate:signupMutation, 
     isPending,
     error,
   }= useMutation({
@@ -40,6 +41,7 @@ const SignUpPage = () => {
 
                 {/* signup for left side */}
           <div className="w-full lg:w-1/2 p-4 sm:p-8 flex flex-col">
+
           {/* logo */}
           <div className="mb-4 flex items-center justify-start gap-2">
                  <ShipWheelIcon className="size-9 text-primary" />
@@ -75,10 +77,10 @@ const SignUpPage = () => {
                     </label>
 
                      <input type='text'
-                 placeholder="John Doe"
+                       placeholder="Enter Name"
                        className="input input-bordered w-full"
-                       value={signupData.FullName}
-                       onChange={(e) => setSignupData({ ...signupData, FullName:e.target.value })}
+                       value={signupData.fullName}
+                       onChange={(e) => setSignupData({ ...signupData, fullName:e.target.value })}
                        required
                  />
 
@@ -90,7 +92,7 @@ const SignUpPage = () => {
                     </label>
 
                      <input type='email'
-                 placeholder="John@gmail.com"
+                 placeholder="Enter Email"
                        className="input input-bordered w-full"
                        value={signupData.email}
                        onChange={(e) => setSignupData({ ...signupData, email:e.target.value })}
@@ -189,3 +191,4 @@ const SignUpPage = () => {
 }
 
 export default SignUpPage
+ 

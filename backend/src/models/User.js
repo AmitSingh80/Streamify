@@ -30,6 +30,10 @@ const userSchema= new mongoose.Schema({
         type:String,
         default:"",
      },
+     learningLanguage: {
+      type: String,
+      default: "",
+    },
      location:{
         type:String,
         default:"",
@@ -38,7 +42,7 @@ const userSchema= new mongoose.Schema({
         type:String,
         default:"",
      },
-     friend:[{
+     friends:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User",
      }]

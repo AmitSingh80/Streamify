@@ -4,7 +4,7 @@ import {upsertStreamUser} from "../lib/stream.js"
 
 
 export async function signup(req, res) {
-  const { fullName,email, password, } = req.body;
+  const { fullName, email,  password} = req.body;
   try {
     if (!fullName || !email || !password ) {
       return res.status(400).json({
