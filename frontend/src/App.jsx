@@ -11,7 +11,7 @@ import  { Toaster } from 'react-hot-toast'
 
 import PageLoader from './components/PageLoader.jsx'
 import useAuthUser from "./hooks/useAuthUser.js"
-// import { Layout } from 'lucide-react'
+
 import Layout from './components/Layout.jsx'
 import { useThemeStore } from './store/useThemeStore.js'
 
@@ -28,7 +28,7 @@ const App = () => {
  
 
   return (
-    <div className='h-screen' dark-theme={theme}>
+    <div className='h-screen' data-theme={theme}>
       <Routes>
 
        <Route path='/' element={isAuthenticated && isOnboarded? (
