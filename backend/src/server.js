@@ -45,6 +45,12 @@ if (process.env.NODE_ENV === "production") {
     })
 }   
 
+app.get('/',(req,res)=>{
+    res.send({
+        activeStatus:true,
+        error:false,
+    })
+})
 
 app.listen(PORT,()=>{
     console.log(`server is running on port: ${PORT}`);
