@@ -24,7 +24,7 @@ const LoginPage = () => {
 
   const {isPending ,error, loginMutation} =useLogin();
 
-   const handleLogin =(e) =>{
+   const handleLogin = (e) =>{
     e.preventDefault();
     loginMutation(loginData);
    }

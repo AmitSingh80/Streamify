@@ -5,7 +5,7 @@ import { signup} from "../lib/api";
 const useSignUp = () => {
     
 
-    const queryClient = useQueryClient();
+  const queryClient = useQueryClient();
   const {
     mutate,
     isPending,
@@ -14,7 +14,7 @@ const useSignUp = () => {
     mutationFn: signup,
     onSuccess: ()=> queryClient.invalidateQueries({queryKey:["authUser"]}),
   }) ;
-  return { error, isPending, signMutation: mutate };
-}
+  return {isPending, error, signMutation:mutate };
+};
 
 export default useSignUp

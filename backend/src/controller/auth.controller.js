@@ -142,7 +142,7 @@ export async function onboard(req,res) {
       await upsertStreamUser({
         id: updatedUser._id.toString(),
         name: updatedUser.fullName,
-        image: updatedUser.profilePic || "",
+        image: updatedUser.profilePics || "",
       });
       console.log(`Stream user updated after onboarding for ${updatedUser.fullName}`);
     } catch (streamError) {

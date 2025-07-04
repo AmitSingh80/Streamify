@@ -4,6 +4,10 @@ import React  from 'react'
 import {useState} from "react"
 import {ShipWheelIcon} from "lucide-react"
 import { Link } from "react-router"
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { signup} from "../lib/api";
+
+// import useSignUp from "../hooks/useSignUp";
 
 
 
@@ -16,25 +20,27 @@ const SignUpPage = () => {
 
 
   //  this part write in hooks
-
-  // const queryClient = useQueryClient();
+  const queryClient = useQueryClient();
     
-  // const {
-  //   mutate:signupMutation, 
-  //   isPending,
-  //   error,
-  // }= useMutation({
-  //   mutationFn: signup,
-  //   onSuccess: ()=> queryClient.invalidateQueries({queryKey:["authUser"]}),
-  // }) ;
+  const {
+    mutate:signupMutation, 
+    isPending,
+    error,
+  }= useMutation({
+    mutationFn: signup,
+    onSuccess: ()=> queryClient.invalidateQueries({queryKey:["authUser"]}),
+  }) ;
   
-  const [isPending, error ,signupMutation] = signupMutation();
+
+  // signup hooks part
+  // const {isPending, error ,signupMutation} = useSignUp();
 
   const handleSignup = (e) => {
     e.preventDefault();
   
     signupMutation(signupData);
   };
+
 
   return (
     <div className="h-screen flex items-center justify-center p-4 sm:p-6 md:p-8"
@@ -173,7 +179,9 @@ const SignUpPage = () => {
             {/* right side */}
             <div className="hidden lg:flex w-full lg:w-1/2 bg-primary/10 items-center justify-center">
            <div className="max-w-md p-8">
-             {/* Illustration */}
+             
+
+
              <div className="relative aspect-square max-w-sm mx-auto">
                <img src="/i.png" alt="Language connection illustration" className="w-full h-full" />
              </div>

@@ -41,7 +41,7 @@ const OnboardingPage = () => {
     const randomAvatar = `https://avatar.iran.liara.run/public/${idx}.png`;
     
 
-   setFormState({ ...formState, profilePic: randomAvatar });
+   setFormState({ ...formState, profilePics: randomAvatar });
    toast.success("Avatar change successfully ");
 
    };
